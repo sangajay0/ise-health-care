@@ -6,38 +6,6 @@
     <title>ISE Health Care Demo</title>
     <link rel="stylesheet" href="src/css/main.min.css">
     <style>
-        /* NEW: Login overlay styles */
-        #login-overlay {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-        .login-container {
-            background: #fff;
-            padding: 2rem;
-            border-radius: 8px;
-            text-align: center;
-        }
-        .login-container input {
-            display: block;
-            margin: 1rem auto;
-            padding: 0.5rem;
-            width: 80%;
-        }
-        .login-container button {
-            padding: 0.5rem 1rem;
-            background: #2b3990;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
         /* Inline critical CSS */
         .sticky-header {
             position: sticky;
@@ -51,93 +19,26 @@
     </style>
 </head>
 <body>
-    <!-- NEW: Login Overlay -->
-    <div id="login-overlay">
-        <div class="login-container">
-            <h2>Login</h2>
-            <input type="text" id="login-username" placeholder="Username">
-            <input type="password" id="login-password" placeholder="Password">
-            <button id="login-button">Login</button>
+    <header>
+        <nav class="main-nav">
+            <div class="logo">ISE Health Care Demo</div>
+            <ul id="category-nav">
+                <!-- Categories will be dynamically loaded here -->
+            </ul>
+        </nav>
+        <div class="hero">
+            <h1>Welcome to ISE Health Care</h1>
+            <p>Your one-stop destination for Health Care</p>
         </div>
-    </div>
-
-    <!-- NEW: Wrap main content in a container hidden by default -->
-    <div id="app-content" style="display:none;">
-        <header>
-            <nav class="main-nav sticky-header">
-                <div class="logo"> ISE Health Care Demo </div>
-                <ul id="category-nav">
-                    <!-- Categories will be dynamically loaded here -->
-                </ul>
-            </nav>
-            <div class="navbar">
-                <div class="navbar-left">
-                    <a href="#" id="home-link" class="nav-link">Home</a>
-                    <a href="#" id="products-link" class="nav-link">Products</a>
-                    <a href="#" id="pricing-link" class="nav-link">Pricing</a>
-                    <a href="#" id="contact-link" class="nav-link">Contact</a>
-                </div>
-                <div class="navbar-right">
-                    <button class="icon-button profile-icon" title="User Account">
-                        <img src="https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?t=st=1742320470~exp=1742324070~hmac=4faa42db0bf818e81c9c7fe9015b3b381567abd80e133ca20bfebe5b037b5edd&w=900" alt="Profile" loading="lazy">
-                    </button>
-                    <button class="icon-button cart-icon" title="Shopping Cart">
-                        <img src="https://images.seeklogo.com/logo-png/50/1/shopping-cart-logo-png_seeklogo-504409.png" alt="Cart" loading="lazy">
-                    </button>
-                </div>
+    </header>
+    <main>
+        <section id="categories">
+            <h2>Medical Categories</h2>
+            <div id="category-list">
+                <!-- Category cards will be dynamically loaded here -->
             </div>
-            <!-- NEW: Products Dropdown Container -->
-            <div id="products-dropdown" class="dropdown" style="display:none;">
-                <ul>
-                    <li><a href="product.html?section=products&item=Hospital%20Medical%20Furniture">Hospital Medical Furniture</a></li>
-                    <li><a href="product.html?section=products&item=Orthopaedic%20Implants">Orthopaedic Implants</a></li>
-                    <li><a href="product.html?section=products&item=General%20Surgical%20Instruments">General Surgical Instruments</a></li>
-                    <li><a href="product.html?section=products&item=Medical%20Disposables">Medical Disposables</a></li>
-                    <li><a href="product.html?section=products&item=Diagnostic%20Equipments">Diagnostic Equipments</a></li>
-                    <li><a href="product.html?section=products&item=Anaesthesia%20Products">Anaesthesia Products</a></li>
-                    <li><a href="product.html?section=products&item=ICU%20Equipment">ICU Equipment</a></li>
-                    <li><a href="product.html?section=products&item=OT%20%26%20Examination%20Lights">OT &amp; Examination Lights</a></li>
-                    <li><a href="product.html?section=products&item=Emergency%20Products">Emergency Products</a></li>
-                    <li><a href="product.html?section=products&item=Physiotherapy%20Equipments">Physiotherapy Equipments</a></li>
-                    <li><a href="product.html?section=products&item=Veterinary%20Medical%20Equipment">Veterinary Medical Equipment</a></li>
-                </ul>
-            </div>
-            <div class="hero">
-                <h1>Welcome to ISE Health Care Global Network </h1>
-                <p>Your one-stop destination for Health Care </p>
-            </div>
-        </header>
-        <main>
-            <section id="categories">
-                <h2>Medical Categories</h2>
-                <div id="category-list">
-                    <!-- Category cards will be dynamically loaded here -->
-                </div>
-            </section>
-        </main>
-        <script src="src/js/navigation.min.js" defer></script>
-    </div>
-
-    <script>
-        // NEW: Login logic (demo only - not secure for production)
-        if (sessionStorage.getItem("loggedIn") !== "true") {
-            document.getElementById('login-overlay').style.display = 'flex';
-            document.getElementById('app-content').style.display = 'none';
-        } else {
-            document.getElementById('login-overlay').style.display = 'none';
-            document.getElementById('app-content').style.display = 'block';
-        }
-        document.getElementById('login-button').addEventListener('click', function() {
-            var username = document.getElementById('login-username').value;
-            var password = document.getElementById('login-password').value;
-            if(username === "ise_global" && password === "Alqpzmxn123") {
-                sessionStorage.setItem("loggedIn", "true");
-                document.getElementById('login-overlay').style.display = 'none';
-                document.getElementById('app-content').style.display = 'block';
-            } else {
-                alert("Invalid credentials. Access denied.");
-            }
-        });
-    </script>
+        </section>
+    </main>
+    <script src="src/js/navigation.min.js" defer></script>
 </body>
 </html>
