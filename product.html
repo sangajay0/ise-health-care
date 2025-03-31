@@ -18,11 +18,34 @@
             padding: 0.4rem; /* reduced padding */
             text-align: center;
             background: #fff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* hover effects */
+        }
+        .product-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
         .product-item img {
             width: 100%;
             height: auto;
             border-radius: 5px;
+        }
+        .product-rating {
+            color: #f0a500;
+            font-size: 1rem;
+        }
+        .product-reviews {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .quick-view {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.3rem 0.6rem;
+            background: #2b3990;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -78,6 +101,9 @@
                         <img src="${diagnosticsImages[index]}" alt="${prodName}">
                         <p>${prodName}</p>
                         <p>Price not set</p>
+                        <div class="product-rating">★★★★☆</div>
+                        <div class="product-reviews">(20 reviews)</div>
+                        <div class="quick-view">Quick View</div>
                     </div>
                 `;
             });
@@ -112,6 +138,9 @@
                         <img src="${biochemistryImages[index]}" alt="${name}">
                         <p>${name}</p>
                         <p>${biochemistryPrices[index]}</p>
+                        <div class="product-rating">★★★★☆</div>
+                        <div class="product-reviews">(15 reviews)</div>
+                        <div class="quick-view">Quick View</div>
                     </div>
                 `;
             });
@@ -147,6 +176,9 @@
                         <img src="${rapidCardImages[index]}" alt="${name}">
                         <p>${name}</p>
                         <p>${rapidCardPrices[index]}</p>
+                        <div class="product-rating">★★★★☆</div>
+                        <div class="product-reviews">(10 reviews)</div>
+                        <div class="quick-view">Quick View</div>
                     </div>
                 `;
             });
@@ -173,6 +205,9 @@
                         <img src="${phlebotomyImages[index]}" alt="${name}">
                         <p>${name}</p>
                         <p>${phlebotomyPrices[index]}</p>
+                        <div class="product-rating">★★★★☆</div>
+                        <div class="product-reviews">(8 reviews)</div>
+                        <div class="quick-view">Quick View</div>
                     </div>
                 `;
             });
@@ -193,6 +228,9 @@
                         <img src="${item.image}" alt="${item.model}">
                         <p>${item.model}</p>
                         <p>Price not set</p>
+                        <div class="product-rating">★★★★☆</div>
+                        <div class="product-reviews">(12 reviews)</div>
+                        <div class="quick-view">Quick View</div>
                     </div>
                 `;
             });
@@ -215,6 +253,9 @@
                         <img src="https://via.placeholder.com/150?text=${encodeURIComponent(item + ' ' + i)}" alt="${item} ${i}">
                         <p>${item} ${i}</p>
                         <p>${price}</p>
+                        <div class="product-rating">★★★★☆</div>
+                        <div class="product-reviews">(5 reviews)</div>
+                        <div class="quick-view">Quick View</div>
                     </div>
                 `;
             }

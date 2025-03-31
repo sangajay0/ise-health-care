@@ -38,6 +38,16 @@
             cursor: pointer;
             border-radius: 5px;
         }
+        /* Inline critical CSS */
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(0,0,0,0.6);
+        }
+        .nav-link:hover {
+            color: #f0a500;
+        }
     </style>
 </head>
 <body>
@@ -54,7 +64,7 @@
     <!-- NEW: Wrap main content in a container hidden by default -->
     <div id="app-content" style="display:none;">
         <header>
-            <nav class="main-nav">
+            <nav class="main-nav sticky-header">
                 <div class="logo"> ISE Health Care Demo </div>
                 <ul id="category-nav">
                     <!-- Categories will be dynamically loaded here -->
@@ -69,10 +79,10 @@
                 </div>
                 <div class="navbar-right">
                     <button class="icon-button profile-icon" title="User Account">
-                        <img src="https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?t=st=1742320470~exp=1742324070~hmac=4faa42db0bf818e81c9c7fe9015b3b381567abd80e133ca20bfebe5b037b5edd&w=900" alt="Profile">
+                        <img src="https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?t=st=1742320470~exp=1742324070~hmac=4faa42db0bf818e81c9c7fe9015b3b381567abd80e133ca20bfebe5b037b5edd&w=900" alt="Profile" loading="lazy">
                     </button>
                     <button class="icon-button cart-icon" title="Shopping Cart">
-                        <img src="https://images.seeklogo.com/logo-png/50/1/shopping-cart-logo-png_seeklogo-504409.png" alt="Cart">
+                        <img src="https://images.seeklogo.com/logo-png/50/1/shopping-cart-logo-png_seeklogo-504409.png" alt="Cart" loading="lazy">
                     </button>
                 </div>
             </div>
@@ -105,7 +115,7 @@
                 </div>
             </section>
         </main>
-        <script src="src/js/navigation.js"></script>
+        <script src="src/js/navigation.js" defer></script>
     </div>
 
     <script>
