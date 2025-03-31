@@ -376,3 +376,36 @@ main {
   display: block;
   margin: 0 auto;
 }
+
+/* NEW: Login overlay styles */
+#login-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+.login-container {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+}
+.login-container input {
+    display: block;
+    margin: 1rem auto;
+    padding: 0.5rem;
+    width: 80%;
+}
+.login-container button {
+    padding: 0.5rem 1rem;
+    background: #2b3990;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
