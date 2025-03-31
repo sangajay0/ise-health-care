@@ -514,4 +514,51 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         alert("Contact us at: info@example.com");
     });
+
+    // Add logic to handle sticky header
+    const header = document.querySelector('.main-nav');
+    const sticky = header.offsetTop;
+
+    function handleStickyHeader() {
+        if (window.pageYOffset > sticky) {
+            header.classList.add('sticky-header');
+        } else {
+            header.classList.remove('sticky-header');
+        }
+    }
+
+    window.addEventListener('scroll', handleStickyHeader);
+
+    // Add hover effects to navigation links
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('mouseover', () => {
+            link.style.color = '#f0a500';
+        });
+        link.addEventListener('mouseout', () => {
+            link.style.color = '';
+        });
+    });
+
+    // Add logic to display product ratings and reviews
+    const productItems = document.querySelectorAll('.product-item');
+    productItems.forEach(item => {
+        const rating = document.createElement('div');
+        rating.className = 'product-rating';
+        rating.innerHTML = '★★★★☆';
+        item.appendChild(rating);
+
+        const reviews = document.createElement('div');
+        reviews.className = 'product-reviews';
+        reviews.innerHTML = '(20 reviews)';
+        item.appendChild(reviews);
+    });
+
+    // Add logic to implement quick view option for products
+    const quickViewButtons = document.querySelectorAll('.quick-view');
+    quickViewButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            alert('Quick view feature coming soon!');
+        });
+    });
 });
