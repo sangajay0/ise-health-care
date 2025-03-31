@@ -409,3 +409,40 @@ main {
     cursor: pointer;
     border-radius: 5px;
 }
+
+/* NEW: Sticky header styles */
+.sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(0,0,0,0.6);
+}
+
+/* NEW: Hover effects on product images */
+.product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* NEW: Styles for product ratings and reviews */
+.product-rating {
+    color: #f0a500;
+    font-size: 1rem;
+}
+
+.product-reviews {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* NEW: Styles for quick view option for products */
+.quick-view {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.3rem 0.6rem;
+    background: #2b3990;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
